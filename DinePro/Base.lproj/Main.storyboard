@@ -86,6 +86,7 @@
                                     <segment title="M"/>
                                     <segment title="F"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Industry tags, separated by commas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PB3-I6-36P">
                                 <rect key="frame" x="163" y="385" width="274" height="30"/>
@@ -193,7 +194,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.86274509799999999" green="0.41176470590000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -214,7 +215,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.86274509799999999" green="0.41176470590000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.92156862745098034" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -241,12 +242,13 @@
                                 <rect key="frame" x="150" y="100" width="300" height="29"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="dsm-Zz-9W3"/>
+                                    <constraint firstAttribute="width" constant="300" id="ymF-3z-gEn"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Today"/>
                                     <segment title="Select Date"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="DateSB1:" destination="BEY-ME-Kjl" eventType="valueChanged" id="fCl-Xt-8rv"/>
                                 </connections>
@@ -259,6 +261,7 @@
                                     <segment title="Lunch"/>
                                     <segment title="Dinner"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFy-3C-JI5">
                                 <rect key="frame" x="150" y="208" width="300" height="30"/>
@@ -296,23 +299,23 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A00-46-hVg" firstAttribute="leading" secondItem="fph-sJ-wRv" secondAttribute="leadingMargin" id="5cc-Xy-qgt"/>
-                            <constraint firstItem="xGH-Ug-gkP" firstAttribute="leading" secondItem="N6d-eB-MXX" secondAttribute="leading" id="8rb-Ge-P85"/>
-                            <constraint firstItem="q1K-ZT-BwK" firstAttribute="centerX" secondItem="A00-46-hVg" secondAttribute="centerX" id="Blw-SF-3y3"/>
-                            <constraint firstItem="N6d-eB-MXX" firstAttribute="leading" secondItem="nFy-3C-JI5" secondAttribute="leading" id="DrX-bY-xdo"/>
-                            <constraint firstItem="Tin-pU-XD0" firstAttribute="centerX" secondItem="q1K-ZT-BwK" secondAttribute="centerX" id="EGf-EP-IHZ"/>
-                            <constraint firstItem="N6d-eB-MXX" firstAttribute="top" secondItem="xGH-Ug-gkP" secondAttribute="bottom" constant="26" id="I70-4F-FF4"/>
-                            <constraint firstItem="Tin-pU-XD0" firstAttribute="bottom" secondItem="A00-46-hVg" secondAttribute="top" id="NOq-DE-v2U"/>
-                            <constraint firstAttribute="bottom" secondItem="A00-46-hVg" secondAttribute="bottom" constant="20" symbolic="YES" id="SlP-U4-fxr"/>
-                            <constraint firstItem="xGH-Ug-gkP" firstAttribute="top" secondItem="IJk-og-Ygr" secondAttribute="bottom" constant="36" id="YCp-iR-eyI"/>
-                            <constraint firstItem="N6d-eB-MXX" firstAttribute="trailing" secondItem="xGH-Ug-gkP" secondAttribute="trailing" id="Zfl-Ig-dxI"/>
-                            <constraint firstItem="Tin-pU-XD0" firstAttribute="leading" secondItem="fph-sJ-wRv" secondAttribute="leading" id="aSx-69-3vJ"/>
-                            <constraint firstItem="q1K-ZT-BwK" firstAttribute="top" secondItem="nFy-3C-JI5" secondAttribute="bottom" constant="24" id="cIi-2h-yaN"/>
-                            <constraint firstItem="nFy-3C-JI5" firstAttribute="leading" secondItem="q1K-ZT-BwK" secondAttribute="leading" id="fnd-ce-Bhn"/>
-                            <constraint firstItem="xGH-Ug-gkP" firstAttribute="centerX" secondItem="fph-sJ-wRv" secondAttribute="centerX" id="mfR-vh-iBM"/>
-                            <constraint firstItem="q1K-ZT-BwK" firstAttribute="trailing" secondItem="nFy-3C-JI5" secondAttribute="trailing" id="r2K-j7-fAQ"/>
-                            <constraint firstItem="nFy-3C-JI5" firstAttribute="top" secondItem="N6d-eB-MXX" secondAttribute="bottom" constant="26" id="ry3-6T-HyW"/>
-                            <constraint firstItem="N6d-eB-MXX" firstAttribute="trailing" secondItem="nFy-3C-JI5" secondAttribute="trailing" id="xbI-lp-qJ1"/>
+                            <constraint firstItem="Tin-pU-XD0" firstAttribute="centerX" secondItem="N6d-eB-MXX" secondAttribute="centerX" id="6xA-aG-PK8"/>
+                            <constraint firstItem="N6d-eB-MXX" firstAttribute="leading" secondItem="xGH-Ug-gkP" secondAttribute="leading" id="Doc-80-CW3"/>
+                            <constraint firstItem="A00-46-hVg" firstAttribute="centerX" secondItem="Tin-pU-XD0" secondAttribute="centerX" id="KGz-wN-AmE"/>
+                            <constraint firstItem="N6d-eB-MXX" firstAttribute="top" secondItem="xGH-Ug-gkP" secondAttribute="bottom" constant="26" id="LlT-1w-66q"/>
+                            <constraint firstItem="A00-46-hVg" firstAttribute="leading" secondItem="fph-sJ-wRv" secondAttribute="leadingMargin" id="PUK-km-WmR"/>
+                            <constraint firstItem="xGH-Ug-gkP" firstAttribute="centerX" secondItem="fph-sJ-wRv" secondAttribute="centerX" id="Qhg-zI-J1H"/>
+                            <constraint firstItem="Tin-pU-XD0" firstAttribute="centerX" secondItem="nFy-3C-JI5" secondAttribute="centerX" id="YgC-Ll-1Uc"/>
+                            <constraint firstItem="nFy-3C-JI5" firstAttribute="top" secondItem="N6d-eB-MXX" secondAttribute="bottom" constant="26" id="Ynb-Pe-zAa"/>
+                            <constraint firstItem="q1K-ZT-BwK" firstAttribute="top" secondItem="nFy-3C-JI5" secondAttribute="bottom" constant="24" id="bcb-dF-aYn"/>
+                            <constraint firstItem="Tin-pU-XD0" firstAttribute="leading" secondItem="fph-sJ-wRv" secondAttribute="leading" id="cfZ-ko-ZEd"/>
+                            <constraint firstItem="q1K-ZT-BwK" firstAttribute="leading" secondItem="nFy-3C-JI5" secondAttribute="leading" id="ftv-8C-mtJ"/>
+                            <constraint firstItem="xGH-Ug-gkP" firstAttribute="top" secondItem="IJk-og-Ygr" secondAttribute="bottom" constant="36" id="gSI-W2-jSC"/>
+                            <constraint firstItem="Tin-pU-XD0" firstAttribute="top" secondItem="q1K-ZT-BwK" secondAttribute="bottom" constant="28" id="kgS-I7-ZqJ"/>
+                            <constraint firstItem="nFy-3C-JI5" firstAttribute="leading" secondItem="N6d-eB-MXX" secondAttribute="leading" id="mvx-hu-9iV"/>
+                            <constraint firstItem="A00-46-hVg" firstAttribute="top" secondItem="Tin-pU-XD0" secondAttribute="bottom" id="pu5-Uh-o1O"/>
+                            <constraint firstItem="Tin-pU-XD0" firstAttribute="centerX" secondItem="q1K-ZT-BwK" secondAttribute="centerX" id="uGM-mH-n8l"/>
+                            <constraint firstItem="A00-46-hVg" firstAttribute="centerX" secondItem="xGH-Ug-gkP" secondAttribute="centerX" id="wAW-uP-s0M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sFI-gQ-Uwl">
@@ -349,7 +352,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.86274509799999999" green="0.41176470590000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BEY-ME-Kjl" kind="relationship" relationship="rootViewController" id="JMa-zg-ZO2"/>
@@ -388,6 +391,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="CTs-au-Vg6"/>
                     <navigationItem key="navigationItem" id="LaG-LF-OSY">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ng4-lm-rZN">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="ELX-QC-Csf" kind="presentation" id="Iwe-SA-Fas"/>
                             </connections>
@@ -407,7 +411,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.86274509803921573" green="0.41176470588235292" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.92156862745098034" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="mgw-F1-n5q" kind="relationship" relationship="rootViewController" id="7mG-qe-i6i"/>
@@ -427,7 +431,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.86274509799999999" green="0.41176470590000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.92156862745098034" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>

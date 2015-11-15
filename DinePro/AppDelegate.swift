@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        UIView.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
         let barButtonAppearanceDict = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 //        NSDictionary *barButtonAppearanceDict = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0], NSForegroundColorAttributeName: [UIColor whiteColor]};
 //        [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
