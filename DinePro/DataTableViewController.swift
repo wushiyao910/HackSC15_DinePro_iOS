@@ -1,32 +1,15 @@
 //
-//  ListViewController.swift
-//  DinePro
+//  DataTableViewController.swift
+//  ProfileTest
 //
-//  Created by WuShiyao on 11/14/15.
-//  Copyright © 2015 WuShiyao. All rights reserved.
+//  Created by Jason Chen on 11/14/15.
+//  Copyright © 2015 Jason Chen. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-let myEvent = EventManager()
-
-class ListViewController:  UITableViewController, UINavigationControllerDelegate {
-    
-    @IBAction func unwindToList(segue: UIStoryboardSegue)
-    {
-        if segue.identifier == "SubmitNewEvent"
-        {
-            let addEventVC = segue.sourceViewController as! AddEventController
-            if let newEvent = addEventVC.newEvent
-            {
-                myEvent.eventsList += [newEvent]
-                myEvent.save()
-                let indexPath = NSIndexPath(forItem: 0, inSection: 0)
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            }
-        }
-    }
+class DataTableViewController: UITableViewController {
     
     
     let myEvent = EventManager()
@@ -48,7 +31,7 @@ class ListViewController:  UITableViewController, UINavigationControllerDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) as! LabelCell
-        //        let numberOfCells: Int = myEvent.eventsList.count - 1
+//        let numberOfCells: Int = myEvent.eventsList.count - 1
         
         let event = myEvent.eventsList[myEvent.eventsList.count - 1 - indexPath.row]
         let dateFormatter = NSDateFormatter()
@@ -59,12 +42,12 @@ class ListViewController:  UITableViewController, UINavigationControllerDelegate
         cell.FoodLabel.text = event.food
         /*if indexPath.row % 2 == 1
         {
-        cell.contentView.backgroundColor = UIColorFromRGB("f8f8f8")
-        
+            cell.contentView.backgroundColor = UIColorFromRGB("f8f8f8")
+            
         }
         else
         {
-        cell.contentView.backgroundColor = UIColorFromRGB("ffffff")
+            cell.contentView.backgroundColor = UIColorFromRGB("ffffff")
         }*/
         //let mgCell = tableView.dequeueReusableCellWithIdentifier("marginCell", forIndexPath: indexPath) as! marginCell
         

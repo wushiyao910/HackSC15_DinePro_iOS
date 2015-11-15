@@ -39,6 +39,10 @@ class ProfileViewController: ProfileDetailViewController, UIImagePickerControlle
         let tapGesture = UITapGestureRecognizer(target: self, action: "imageTapped:")
         
         photoField.addGestureRecognizer(tapGesture)
+        
+        self.photoField.layer.cornerRadius = self.photoField.frame.size.width / 2
+        self.photoField.clipsToBounds = true
+        
 //        let barButtonAppearanceDict = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 //        tabBarItem.setTitleTextAttributes(barButtonAppearanceDict, forState: .Normal)
         
@@ -47,15 +51,32 @@ class ProfileViewController: ProfileDetailViewController, UIImagePickerControlle
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SaveProfile"
         {
-            if let name = nameField.text
+            let name: String = nameField.text!
+            let photo: UIImage? = photoField.image
+            let gender: String? = genderField.titleForSegmentAtIndex(genderField.selectedSegmentIndex)
+            let intro: String? = introField.text
+            let tags: [String]? = parsetag(tagField.text!)
+            let company: String? = companyField.text
+            let position: String? = positionField.text
+            let education: String? = universityField.text
+            let major: String? = majorField.text
+            if !name.isEmpty
             {
-                if !name.isEmpty
-                {
-                    theUser = Person (name: name)
-                    theUser?.photo = photoField.image
-                }
+                theUser = Person (name: name, photo: photo, gender: gender, intro: intro, tags: tags, company: company, position: position, education: education, major: major)
             }
         }
+    }
+    
+    func parsetag(tags: String) -> [String]{
+        //var tagsarr: [String]?
+        //return tagsarr = tags.componentsSeparatedByString(",")
+        
+        //return tagsarr
+        if let tagsarr: [String] = tags.componentsSeparatedByString(",")
+        {
+            return tagsarr
+        }
+        
     }
     
     func imageTapped(gesture: UIGestureRecognizer) {
