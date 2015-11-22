@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Parse
+import Bolts
 
 class ProfileViewController: ProfileDetailViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -30,13 +32,15 @@ class ProfileViewController: ProfileDetailViewController, UIImagePickerControlle
     @IBOutlet weak var positionField: UITextField!
     
     
-    var theUser: Person?
     
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "imageTapped:")
+        
         
         photoField.addGestureRecognizer(tapGesture)
         
@@ -46,25 +50,83 @@ class ProfileViewController: ProfileDetailViewController, UIImagePickerControlle
 //        let barButtonAppearanceDict = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 //        tabBarItem.setTitleTextAttributes(barButtonAppearanceDict, forState: .Normal)
         
+        let currentUser = PFUser.currentUser()
+        
+        
+        if currentUser != nil
+        {
+            nameField.text = currentUser?["name"] as? String
+            introField.text = currentUser?["intro"] as? String
+            universityField.text = currentUser?["university"] as? String
+            majorField.text = currentUser?["major"] as? String
+            companyField.text = currentUser?["company"] as? String
+            positionField.text = currentUser?["position"] as? String
+        }
+        else
+        {
+            self.nameField.text = nil
+            self.introField.text = nil
+            self.universityField.text = nil
+            self.majorField.text = nil
+            self.companyField.text = nil
+            self.positionField.text = nil
+        }
+        
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SaveProfile"
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "SaveProfile"
+//        {
+//            let name: String = nameField.text!
+//            let photo: UIImage? = photoField.image
+//            let gender: String? = genderField.titleForSegmentAtIndex(genderField.selectedSegmentIndex)
+//            let intro: String? = introField.text
+//            let tags: [String]? = parsetag(tagField.text!)
+//            let company: String? = companyField.text
+//            let position: String? = positionField.text
+//            let education: String? = universityField.text
+//            let major: String? = majorField.text
+//            if !name.isEmpty
+//            {
+//                theUser = Person (name: name, photo: photo, gender: gender, intro: intro, tags: tags, company: company, position: position, education: education, major: major)
+//            }
+//        }
+//    }
+    
+    @IBAction func saveButtonAction(sender: AnyObject) {
+        var currentUser = PFUser.currentUser()
+        currentUser?["name"] = nameField.text
+        currentUser?["intro"] = introField.text
+        currentUser?["university"] = universityField.text
+        currentUser?["major"] = majorField.text
+        currentUser?["company"] = companyField.text
+        currentUser?["position"] = positionField.text
+        
+        if genderField.selectedSegmentIndex == 0
         {
-            let name: String = nameField.text!
-            let photo: UIImage? = photoField.image
-            let gender: String? = genderField.titleForSegmentAtIndex(genderField.selectedSegmentIndex)
-            let intro: String? = introField.text
-            let tags: [String]? = parsetag(tagField.text!)
-            let company: String? = companyField.text
-            let position: String? = positionField.text
-            let education: String? = universityField.text
-            let major: String? = majorField.text
-            if !name.isEmpty
-            {
-                theUser = Person (name: name, photo: photo, gender: gender, intro: intro, tags: tags, company: company, position: position, education: education, major: major)
-            }
+            currentUser?["gender"] = "M"
         }
+        else
+        {
+            currentUser?["gender"] = "F"
+        }
+        currentUser?.saveInBackgroundWithBlock{
+            (success: Bool, error: NSError?) -> Void in
+            if (success)
+            {
+                if self.nameField.text != "" {
+                    
+                    self.performSegueWithIdentifier("UnwindControllerConditional", sender: self)
+                }
+            }
+            else
+            {
+                
+            }
+            
+        }
+        
+        
     }
     
     func parsetag(tags: String) -> [String]{
@@ -78,6 +140,7 @@ class ProfileViewController: ProfileDetailViewController, UIImagePickerControlle
         }
         
     }
+    
     
     func imageTapped(gesture: UIGestureRecognizer) {
         // if the tapped view is a UIImageView then set it to imageview
@@ -108,10 +171,6 @@ class ProfileViewController: ProfileDetailViewController, UIImagePickerControlle
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func Cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    
+        
     
 }

@@ -85,4 +85,33 @@ class ListViewController:  UITableViewController, UINavigationControllerDelegate
         
         return UIColor(red: r, green: g, blue: b, alpha: CGFloat(alpha))
     }
+    
+    var eventPass: Event?
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        eventPass = myEvent.eventsList[myEvent.eventsList.count - 1 - indexPath.row]
+        self.performSegueWithIdentifier("eventDetail", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "eventDetail" {
+            let eventTemp = segue.destinationViewController as! UINavigationController
+            let eventDest = eventTemp.viewControllers.first as! EventDetailController
+            eventDest.theEvent = eventPass
+
+            
+        }
+    }
+    
+    let myPerson = PersonManager()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
 }

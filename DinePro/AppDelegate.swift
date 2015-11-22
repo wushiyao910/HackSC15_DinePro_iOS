@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Parse
+import Bolts
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,9 +27,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearanceDict, forState:UIControlState.Normal)
         self.window?.rootViewController?.navigationController?.tabBarController?.viewControllers![1].tabBarItem.setTitleTextAttributes(barButtonAppearanceDict, forState: .Normal)
         self.window?.rootViewController?.navigationController?.tabBarController?.viewControllers![1].tabBarItem.setTitleTextAttributes(barButtonAppearanceDict, forState: .Disabled)
-        return true
+        
+        //Parse codes
+        //location
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("jBKo3K1hRouWhd7Fb9jeVlDSYp7M5QXmpGrlB271",
+            clientKey: "UEobMyZU9uQAAtrkXA0dZGSJZv0ZpKIiLUHAvUv0")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        //Parse Facebook Login/Signup
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(
+                application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -42,6 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
+
     }
 
     func applicationWillTerminate(application: UIApplication) {
