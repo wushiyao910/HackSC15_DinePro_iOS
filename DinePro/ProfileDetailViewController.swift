@@ -33,7 +33,7 @@ class ProfileDetailViewController: UIViewController {
         
         //nameFieldParent.text = "Test"
         
-//
+
 //        if cUsr?["name"] == nil
 //        {
 //            nameFieldParent.text = ""
@@ -43,26 +43,58 @@ class ProfileDetailViewController: UIViewController {
 //            let nameTmp = cUsr?["name"] as? String
 //            nameFieldParent.text = nameTmp
 //        }
-//        if let introTmp:String = cUsr?["intro"] as? String
-//        {
-//            introFieldParent.text = introTmp
-//        }
-//        if let universityTmp:String = cUsr?["university"] as? String
-//        {
-//            universityFieldParent.text = universityTmp
-//        }
-//        if let majorTmp:String = cUsr?["major"] as? String
-//        {
-//            majorFieldParent.text = majorTmp
-//        }
-//        if let companyTmp:String = cUsr?["company"] as? String
-//        {
-//            companyFieldParent.text = companyTmp
-//        }
-//        if let positionTmp:String = cUsr?["position"] as? String
-//        {
-//            positionFieldParent.text = positionTmp
-//        }
+        
+        if let nameTmp:String = cUsr?["name"] as? String
+        {
+            if let label = nameFieldParent
+            {
+                label.text = nameTmp
+            }
+        }
+        if let introTmp:String = cUsr?["intro"] as? String
+        {
+            if let label = introFieldParent
+            {
+                label.text = introTmp
+
+            }
+        }
+        if let universityTmp:String = cUsr?["university"] as? String
+        {
+            if let label = universityFieldParent
+            {
+                label.text = universityTmp
+            }
+        }
+        if let majorTmp:String = cUsr?["major"] as? String
+        {
+            if let label = majorFieldParent
+            {
+                label.text = majorTmp
+            }
+        }
+        if let companyTmp:String = cUsr?["company"] as? String
+        {
+            if let label = companyFieldParent
+            {
+                label.text = companyTmp
+            }
+        }
+        if let positionTmp:String = cUsr?["position"] as? String
+        {
+            if let label = positionFieldParent
+            {
+                label.text = positionTmp
+            }
+        }
+        
+        if let genderTmp:String = cUsr?["gender"] as? String
+        {
+            if let label = genderFieldParent
+            {
+                label.text = genderTmp
+            }
+        }
         
 //        nameFieldParent.text = cUsr?["name"] as? String
 //        introFieldParent.text = cUsr?["intro"] as? String
